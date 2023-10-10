@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Poppins for header font & Montserrat for body font */
+
+html{
+    @apply m-0;
+    scroll-behavior: smooth;
+    font-family: 'Montserrat';
+    background: linear-gradient(270deg, #280375 0.52%, #130138 19.79%, #0C0026 33.85%, #0E012B 47.40%, #190248 61.46%, #4108BA 99.08%);
+}
+
+body{
+    @apply text-white mx-auto;
+}
+
+body::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 10px rgb(0, 0, 0);
+}
+
+::-webkit-scrollbar-track-piece  {
+    @apply bg-gray-900;
+}
+
+body::-webkit-scrollbar-thumb {
+    @apply bg-indigo-700 shadow-inner rounded;
+}
+
+h1{
+    font-family: 'Poppins';
+    @apply font-semibold sm:text-7xl text-6xl;
+}
+h2{
+    font-family: 'Poppins';
+    @apply font-semibold sm:text-5xl text-4xl;
+}
+h3{
+    font-family: 'Poppins';
+    @apply font-semibold sm:text-4xl text-3xl;
+}
+h4{
+    font-family: 'Poppins';
+    @apply font-semibold sm:text-2xl text-xl;
+}
+h5{
+    font-family: 'Poppins';
+    @apply font-semibold sm:text-xl text-lg;
+}
+h6{
+    font-family: 'Poppins';
+    @apply font-semibold sm:text-lg text-base;
+}
+p{
+    @apply text-sm sm:text-base;
+}
+
+.dark-section{
+    @apply w-full;
+    background-color: #0D0D0D;
+}
+
+.section{
+    @apply w-full;
+}
+
+.wrapper{
+    @apply w-11/12 max-w-7xl mx-auto;
+}
+
+.themedWord{
+    @apply text-indigo-600;
+}
+
+
+
+/* Markdown Styles */
+#md h3, 
+#md h4, 
+#md h5, 
+#md h6{
+    @apply my-8;
+}
+#md h3:nth-child(n+2){
+    @apply mt-14;
+}
+
+#md p {
+    @apply my-2 mt-4;
+}
+
+#md img {
+    @apply max-w-full my-4; /* Added margin */
+}
+
+#md ul,
+#md ol {
+    @apply list-outside pl-6 my-4; /* Added margin */
+}
+
+#md ul {
+    @apply list-disc;
+}
+
+#md ol {
+    @apply list-decimal;
+}
+
+#md blockquote {
+    @apply border-l-4 border-gray-300 my-4 pl-4 py-2; /* Added margin and padding */
+}
+
+#md pre{
+    @apply bg-black p-3 rounded-md overflow-scroll;
+}
+
+#md pre::-webkit-scrollbar {
+    display: none;
+}
+
+#md code {
+    @apply bg-black px-2 py-1 font-mono my-2; /* Added margin */
+}
+
+#md pre code {
+    @apply bg-transparent p-0 text-base my-2; /* Added margin */
+}
+
+#md table {
+    @apply w-full border-collapse my-4; /* Added margin */
+}
+
+#md th,
+#md td {
+    @apply border p-2;
+}
+  
+#md th {
+    @apply bg-gray-100;
+}
+  
+::-webkit-scrollbar {
+    @apply w-2;
+}
+  
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 10px rgb(0, 0, 0);
+}
+
+::-webkit-scrollbar-track-piece  {
+    @apply bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-indigo-700 shadow-inner rounded;
+}
