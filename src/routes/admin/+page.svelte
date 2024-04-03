@@ -1,34 +1,38 @@
 <script lang="ts">
-  import pfLogo from '$lib/assets/pf-logo.png'
+  import pfLogo from '$lib/assets/pf-logo.webp'
   import SvelteMarkdown from 'svelte-markdown'
-  import { blogStore } from '../../blogStore';
-  import { supabase } from '$lib/supabase';
+  import Fa from 'svelte-fa'
+  import { faPlus, faSave, faTrash, faCog } from '@fortawesome/free-solid-svg-icons'
+  import { blogStore, updateBlog } from '../../blogStore';
+  import CreateBlogModal from '$lib/components/modals/CreateBlogModal.svelte';
+  import DeleteBlogModal from '$lib/components/modals/DeleteBlogModal.svelte';
+  import EditBlogModal from '$lib/components/modals/EditBlogModal.svelte';
 
-  interface Blog {
-    id: string;
-    title: string;
-    description: string;
-    content: string; 
-    header_image: string;
-    created_at: string;
-    published: boolean;
-  }
-
-  let value = '';
+  // Blog Values
+  let articleContent = '';
   let articleID = '';
+  let articleTitle = '';
+  let articleDesc = '';
+  let articleImg = '';
+  let isArticlePublished: boolean = true;
+  
+
   $: articles = $blogStore;
   $: pubArticles = articles.filter(article => article.published === true);
   $: draftArticles = articles.filter(article => article.published === false);
-  
 
-  function assignBlog(content: string, id:string){
-    value = content;
+  
+  function assignBlog(content: string, id:string, title:string, desc:string, img:string, isPublished:boolean){
+    articleContent = content;
     articleID = id;
-    console.log(articleID);
+    articleTitle = title;
+    articleDesc = desc;
+    articleImg = img;
+    isArticlePublished = isPublished;
   }
 
-  let showPublished: boolean = false;
-  let showDrafts: boolean = false;
+  let showPublished: boolean = true;
+  let showDrafts: boolean = true;
 
   function toggleShowPublished(){
     showPublished = !showPublished;
@@ -36,24 +40,13 @@
   function toggleShowDrafts(){
     showDrafts = !showDrafts;
   }
+  let isCreateModalOpen = false;
+  let isDeleteModalOpen = false;
+  let isEditModalOpen = false;
 
-  async function savesies(){
-    try {
-      const { data, error } = await supabase
-        .from('blogs')
-        .update({ content: value })
-        .eq('id', articleID)
-        .select()
-
-        console.log(data);
-
-      if (error) {
-        throw error;
-      }
-      console.log(`Blog post with ID ${articleID} content updated successfully.`);
-    } catch (error) {
-      console.error('Error updating blog content:', error);
-    }
+  // Blog Functions
+  const saveChanges = async () => {
+    await updateBlog(articleID, articleContent);
   }
 </script>
 
@@ -72,7 +65,7 @@
   }
 
   .navbar{
-    @apply flex flex-row w-full max-w-7xl mx-auto my-4 justify-between;
+    @apply flex flex-row w-full px-5 mx-auto my-4 justify-between;
   }
   .n-left{
     @apply flex flex-row;
@@ -90,8 +83,8 @@
   }
 
   .workspace{
-    @apply h-screen w-full grid;
-    grid-template-columns: 1.5fr 3fr 3fr;
+    @apply h-screen w-full grid gap-4;
+    grid-template-columns: 1.8fr 3fr 3fr;
     height: calc(100vh - 64px);
   }
   .sidebar, .editor, .preview{
@@ -104,10 +97,10 @@
     @apply flex flex-col justify-between overflow-hidden px-2;
   }
   .editor{
-    @apply px-2 break-words;
+    @apply px-2 mt-8  break-words;
   }
   .preview{
-    @apply overflow-y-scroll break-words;
+    @apply overflow-y-scroll break-words px-2 pr-4;
   }
 
   .bbtn{
@@ -117,9 +110,9 @@
     @apply text-indigo-600;
   }
 
-  .button{
+  /* .button{
     @apply border border-white px-6 my-1 rounded-2xl w-full inline-block;
-  }
+  } */
   .postSets{
     @apply border-b mb-2 flex flex-row justify-between;
   }
@@ -128,6 +121,10 @@
   }
   .postSets button:hover{
     @apply text-indigo-600;
+  }
+
+  .bottombar{
+    @apply flex flex-row gap-1 border-t mx-auto justify-between w-full p-2;
   }
 
 </style>
@@ -161,7 +158,7 @@
           <div class="sbList">
             {#if (showPublished == true)}
               {#each pubArticles as blog}
-                <button class="bbtn" on:click={() => assignBlog(blog.content, blog.id)}>
+                <button class="bbtn" on:click={() => assignBlog(blog.content, blog.id, blog.title, blog.description, blog.header_image, blog.published)}>
                   {blog.title}
                 </button>
               {/each}
@@ -181,7 +178,7 @@
           <div class="sbList">
             {#if (showDrafts == true)}
               {#each draftArticles as blog}
-                <button class="bbtn" on:click={() => assignBlog(blog.content, blog.id)}>
+                <button class="bbtn" on:click={() => assignBlog(blog.content, blog.id, blog.title, blog.description, blog.header_image, blog.published)}>
                   {blog.title}
                 </button>
               {/each}
@@ -190,19 +187,27 @@
         </div>
         
         <div class="bottombar">
-          <button class="button" on:click={savesies}>Save</button>
+          <button on:click={() => {isCreateModalOpen = !isCreateModalOpen}}><Fa icon={faPlus} size="lg"/></button>
+          <button on:click={saveChanges}><Fa icon={faSave} size="lg"/></button>
+          <button on:click={() => {isDeleteModalOpen = !isDeleteModalOpen}}><Fa icon={faTrash} size="lg"/></button>
+          <button on:click={() => {isEditModalOpen = !isEditModalOpen}}><Fa icon={faCog} size="lg"/></button>
         </div>
       </div>
       
       <section class="editor">
-        <textarea bind:value></textarea>
+        <textarea bind:value={articleContent}></textarea>
       </section>
 
       <section class="preview">
         <div id="md" class="wrapper">
-          <SvelteMarkdown source={value}  />
+          <SvelteMarkdown source={articleContent}  />
         </div>
       </section>
     </section>
   </div>
 </div>
+
+<!-- Modals -->
+<CreateBlogModal bind:isOpen={isCreateModalOpen}/>
+<DeleteBlogModal bind:isOpen={isDeleteModalOpen} bind:id={articleID}/>
+<EditBlogModal bind:isOpen={isEditModalOpen} bind:id={articleID} bind:title={articleTitle} bind:description={articleDesc} bind:imgLink={articleImg} bind:isPublished={isArticlePublished}/>

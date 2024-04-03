@@ -1,57 +1,46 @@
 <script>
-    import Hero from '$lib/assets/AboutHero.jpg'
-    import Marquee from '$lib/components/Marquee.svelte';
-	import Button from '$lib/components/Button.svelte';
+    import Hero from '$lib/assets/AboutHero.webp'
+	import PageHeader from '$lib/components/PageHeader.svelte';
     import { fly } from 'svelte/transition';
+
+    import Fa from 'svelte-fa';
+    import { faHtml5, faCss3, faJs, faNodeJs, faFigma } from '@fortawesome/free-brands-svg-icons'
+    import 'iconify-icon'
+
+    let iconSize = 52;
 </script>
 
 <style lang='postcss'>
-    .hero{
-        @apply mt-12;
+    .about{
+        @apply flex flex-col gap-32;
     }
-    .h-wrapper{
-        @apply flex flex-col-reverse lg:flex-row;
+    .introduction{
+        @apply w-11/12 mx-auto grid md:grid-cols-[2fr_2fr] lg:grid-cols-[3fr_1.5fr] gap-16;
     }
-    .hero-left{
-        @apply w-full lg:w-1/2 relative;
+    .intro-text{
+        @apply flex flex-col gap-3;
     }
-    .hero-img{
-        @apply absolute overflow-hidden -top-52 lg:top-0 right-0 left-0  mx-auto lg:mx-0 z-10 w-60 h-80 sm:w-72 sm:h-96;
+    .intro-left{
+        @apply flex flex-col justify-center;
     }
-    @media (min-width: 1024px) {
-        .hero-img{
-            width: 485px;
-            height: 580px;
-        }
+    .sectHeader{
+        @apply mb-5;
     }
-
-    .hero-right{
-        @apply w-full lg:w-1/2 flex justify-center z-10;
+    .intro-right{
+        @apply h-full w-full;
     }
-    .hero-text{
-        @apply text-center mt-20 lg:my-40 lg:pb-0 md:pb-60 pb-60;
-    }
-    .a-wrapper{
-        @apply py-20;
-    }
-    .intro{
-        @apply mt-10 sm:mt-16;
-    }
-    .storyWrapper{
-        @apply flex flex-col md:flex-row gap-6 md:gap-0 justify-between mt-6 md:mt-12;
-    }
-    .storyLeft{
-        @apply md:mr-16 w-full md:w-1/2;
-    }
-    .storyRight{
-        @apply md:ml-16 w-full md:w-1/2;
+    .image{
+        @apply rounded-xl border h-full w-full object-cover;
     }
 
-    .linkBTN{
-        @apply w-full flex flex-col md:flex-row gap-5 md:gap-3 justify-between mt-16;
+    .proficiency{
+        @apply w-11/12 mx-auto;
     }
-    .Button{
-        @apply w-60 flex justify-center mx-auto;
+    .logos{
+        @apply grid grid-cols-3 lg:grid-cols-6 gap-12 w-10/12 mx-auto my-12;
+    }
+    .logos div{
+        @apply flex justify-center;
     }
 </style>
 
@@ -59,48 +48,34 @@
     <link rel="preload" as="image" href={Hero} />
 </svelte:head>
 
-<section class="hero section">
-    <div class="wrapper h-wrapper">
-        <div class="hero-left">
-            <div class="hero-img">
-                <img in:fly src={Hero} alt="">
+<PageHeader title="About Me" subtitle="A little about myself" showSubtitle={true}/>
+<div class="about di-sect">
+    <section class="introduction">
+        <div class="intro-left">
+            <h3 class="sectHeader">Introduction</h3>
+            <div class="intro-text">
+                <p>Hello, I'm Joshua Eworo, a self-taught software engineer based out of Houston. I find joy in being able to bring together the worlds of creativity and logic. I enjoy using my skill-set to create products that not only have beautiful aesthetics, but have amazing utility as well.</p>
+                <p>From an early age, I loved being immersed in technology and innovation in various aspects. I did it all when I was younger, from tinkering with arduinos and robot kits, to letting my imagination run wild creating little video games. My love for technology and creation brought me here, to a place where I can utilize my skill-set to contribute to this ever growing technological landscape.</p>
+                <p>I'm excited to continue refining and developing my skills to learn and grow. To be able to bring the best experience to your users is a pleasure of mine. Want to tell me about any available job opportunities or just want to say hello? Reach out :)</p>
             </div>
         </div>
-        <div class="hero-right">
-            <div class="hero-text">
-                <p>Hey, I’m Joshua!</p>
-                <h1>About Me</h1>
-            </div>
+        <div class="intro-right">
+            <img class="image" src={Hero} alt="">
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="about dark-section">
-    <Marquee marqueeItems={["- Engineer", "- Designer", "- Tinkerer", "- Creative", "- Engineer", "- Designer"]} />
-    <div class="wrapper a-wrapper">
-        <p class="intro">
-            Hello, I'm Joshua Eworo, an applied AI and software engineer based out of Houston. I find joy in being able to bring together the worlds of creativity and logic. 
-            I enjoy using my skill-set to create products that not only have beautiful aesthetics, but have amazing utility as well. Continuously pushing the boundaries of what's possible with technology, I strive to stay at the forefront of the ever-evolving AI and software engineering landscape. 
-            My passion for innovation and problem-solving fuels my dedication to developing cutting-edge solutions that make a positive impact on people's lives. 
-        </p>
-        <div class="storyWrapper">
-            <p class="storyLeft">
-                From an early age, I loved being immersed in technology. I did it all when I was younger, from tinkering with arduinos and robot kits, to letting my imagination run wild creating little video games. My love for technology and creation brought me here, to a place where I can use my skill set to enhance your business.
-            </p>
-            <p class="storyRight">
-                I am thrilled to enhance and advance my abilities, continuously refining my skills to foster learning and personal growth. Delivering an exceptional user experience brings me immense joy. Whether you wish to discuss job opportunities or simply want to say hello, reach out!
-            </p>
+    <section class="proficiency">
+        <h3 class="sectHeader">Skills I am Proficient At</h3>
+        <div class="logos">
+            <div><iconify-icon icon="devicon:html5" style="font-size: {iconSize}px;"></iconify-icon></div>
+            <div><iconify-icon icon="devicon:css3" style="font-size: {iconSize}px;"></iconify-icon></div>
+            <div><iconify-icon icon="devicon:javascript" style="font-size: {iconSize}px;"></iconify-icon></div>
+            <div><iconify-icon icon="devicon:tailwindcss" style="font-size: {iconSize}px;"></iconify-icon></div>
+            <div><iconify-icon icon="teenyicons:nextjs-outline" style="color: white; font-size: {iconSize}px;"></iconify-icon></div>
+            <div><iconify-icon icon="vscode-icons:file-type-vercel" style="font-size: {iconSize}px;"></iconify-icon></div>
+            <div><iconify-icon icon="skill-icons:webflow" style="color: white; font-size: {iconSize}px;"></iconify-icon></div>
+            <div><iconify-icon icon="devicon:figma" style="font-size: {iconSize}px;"></iconify-icon></div>
         </div>
-        <div class="linkBTN">
-            <div class="Button">
-                <Button text="View My Tech Stack"/>
-            </div>
-            <div class="Button">
-                <Button text="View My Projects"/>
-            </div>
-            <div class="Button">
-                <Button text="View My Blog"/>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
+</div>
+<hr class="di-vide">

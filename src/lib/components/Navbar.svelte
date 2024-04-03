@@ -1,5 +1,5 @@
 <script lang="ts" type="module">
-    import pfLogo from '$lib/assets/pf-logo.png'
+    import pfLogo from '$lib/assets/pf-logo.webp'
     import Fa from 'svelte-fa'
     import { faBars, faClose } from '@fortawesome/free-solid-svg-icons'
 	import { blur } from 'svelte/transition';
@@ -14,16 +14,16 @@
             'link': "/",
         },
         {
-            'page': "About",
-            'link': "/about",
+            'page': "Projects",
+            'link': "/projects",
         },
         {
             'page': "Blog",
             'link': "/blog",
         },
         {
-            'page': "Projects",
-            'link': "/projects",
+            'page': "About",
+            'link': "/about",
         }
     ];
     
@@ -40,7 +40,7 @@
         @apply fixed top-0 w-full z-30;
     }
     .wrapper{
-        @apply flex flex-row justify-between py-6 mx-auto w-11/12 max-w-7xl z-30 relative;
+        @apply flex flex-row justify-between py-12 z-30 relative;
     }
     .left{
         @apply flex items-center;
@@ -60,7 +60,9 @@
     }
     .dropped{
         @apply h-screen fixed top-0 w-full z-20 flex items-center justify-center;
-        background: linear-gradient(270deg, #280375 0.52%, #130138 19.79%, #0C0026 33.85%, #0E012B 47.40%, #190248 61.46%, #4108BA 99.08%);
+        /* background: linear-gradient(270deg, #280375 0.52%, #130138 19.79%, #0C0026 33.85%, #0E012B 47.40%, #190248 61.46%, #4108BA 99.08%); */
+        background: url($lib/assets/Background.svg) center top repeat fixed;
+        background-size: auto 100%;
     }
     .logo{
         @apply invert;
@@ -77,7 +79,7 @@
 </style>
 
 <nav class={navClass}>
-    <div class="wrapper">
+    <div class="wrapper di-sect">
         <div class="left">
             <a href="/"><img class="logo" src={pfLogo} alt=""></a>
         </div>
@@ -91,7 +93,7 @@
             <div class="get-started">
                 <a href="/contact">
                     <div class="btn">
-                        Get Started
+                        Get in touch!
                     </div>
                 </a>
             </div>
@@ -120,7 +122,7 @@
             <div class="get-started">
                 <a on:click={dropMenu} href="/">
                     <div class="btn">
-                        Get Started
+                        Get in touch!
                     </div>
                 </a>
             </div>

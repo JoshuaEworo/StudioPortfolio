@@ -1,7 +1,7 @@
 <script>
-    import Marquee from '$lib/components/Marquee.svelte';
-    import Hero from '$lib/assets/Hero.jpg'
+    import Hero from '$lib/assets/Hero.webp'
     import { fly } from 'svelte/transition';
+	import Icons from './Icons.svelte';
 
 </script>
 
@@ -11,36 +11,65 @@
 
 <style lang="postcss">
     .hero{
-        @apply relative overflow-x-hidden flex mt-8 sm:mt-8;
+        @apply relative flex flex-col lg:flex-row justify-between mt-8 mx-auto;
+        height: calc(100vh - 280px)
     }
 
-    .marquee{
-        @apply absolute w-full top-1/4 flex flex-col sm:gap-5;
+    .visuals{
+        font-family: 'Poppins';
+        @apply flex flex-col h-96 justify-center my-auto px-8 lg:px-16 font-semibold;
+    }
+    .visual-text{
+        font-size: 14vw;
+        line-height: 1;
+    }
+    .vt-bottom{
+        padding-left: 10vw;
+        padding-right: 10vw;
     }
 
+    .info{
+        @apply flex flex-col gap-3 justify-center w-full lg:w-3/12;
+    }
+    .icons{
+        @apply pt-2 w-full;
+    }
+
+    .HeroImageDiv{
+        @apply absolute flex justify-end right-1 lg:right-1/3;
+    }
     .heroImage{
-        @apply mx-auto;
-        border-radius: 200px;
-        width: 230px;
-        height: 350px;
-        object-fit: cover;
-        z-index: 10;
+        @apply rounded-full -z-10 mx-auto;
+        width: 40vw;
+        height: 40vw;
     }
 
-    @media (min-width: 640px) {
-        .heroImage{
-            width: 347px;
-            height: 524px;
+
+    @media (min-width: 1024px) {
+        .heroImage {
+            width: 25vw;
+            height: 25vw;
+        }
+        .visual-text{
+            font-size: 9vw;
+            line-height: 1;
         }
     }
+
 </style>
 
 <div class="hero">
-    <div class="marquee">
-        <Marquee marqueeItems={["-  Software Engineering", "-  Artificial Intelligence", "-  Web Design"]} />
-        <Marquee marqueeItems={["-  Web Design", "-  Artificial Intelligence", "-  Software Engineering"]} />
-        <Marquee marqueeItems={["-  Software Engineering", "-  Artificial Intelligence", "-  Web Design"]} />
-        <Marquee marqueeItems={["-  Web Design", "-  Artificial Intelligence", "-  Software Engineering"]} />
+    <div class="visuals">
+        <span class="visual-text">Joshua</span>
+        <span class="visual-text vt-bottom">Eworo</span>
+        <div class="HeroImageDiv">
+            <img in:fly class="heroImage" src={Hero} alt="">
+        </div>
     </div>
-    <img in:fly class=heroImage src={Hero} alt="">
+    <div class="info">
+        <h4>I am Joshua Eworo, a software and applied AI engineer based in Houston, Texas</h4>
+        <hr/>
+        <p>I design and build websites, web applications, and AI-powered systems.</p>
+        <div class="icons"><Icons/></div>
+    </div>
 </div>

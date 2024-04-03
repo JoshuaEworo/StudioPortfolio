@@ -5,6 +5,7 @@
     import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons'
 	import Fa from 'svelte-fa';
 	import PageHeader from '$lib/components/PageHeader.svelte';
+	import Button from '$lib/components/Button.svelte';
 
     const id = $page.params.slug;
 
@@ -14,13 +15,22 @@
 
 
 <style lang="postcss">
+    .wrapper-blog{
+        @apply w-11/12 md:w-2/3 max-w-7xl mx-auto;
+    }
+    .centered{
+        @apply w-full flex justify-center mt-12;
+    }
 </style>
 
 {#if article}
-    <PageHeader title={article.title} subtitle={article.title}/>
+    <PageHeader title={article.title} subtitle={article.description} showSubtitle={false}/>
     <div class="dark-section">
-        <div id="md" class="wrapper py-8">
+        <div id="md" class="wrapper-blog py-8">
             <SvelteMarkdown source={article.content}  />
+        </div>
+        <div class="centered">
+            <Button text="🡰 Back" src="javascript:history.back()"/>
         </div>
     </div>
 {:else}
@@ -36,3 +46,5 @@
         </div>
     </div>
 {/if}
+
+<hr class="di-vide">

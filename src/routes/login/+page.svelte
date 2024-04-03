@@ -1,6 +1,10 @@
 <script>
     import { enhance } from "$app/forms";
 	  export let form;
+
+    import { supabase } from '$lib/supabase';
+
+    console.log(supabase);
     
 </script>
 
@@ -17,7 +21,7 @@
     @apply mb-3;
   }
 
-  .socials{
+  /* .socials{
     @apply flex gap-12 w-full justify-between;
   }
   .socials>a{
@@ -30,7 +34,7 @@
 
   .ruleCard {
     @apply bg-white my-2;
-  }
+  } */
 
   input{
     all: unset;
@@ -69,7 +73,7 @@
           <div class="email">
             <label for="email"><h5>Email</h5></label>
             <div class="inputHolder">
-              <input name="email" type="email" id="email" placeholder="name@address.com" value={form?.email ?? ''} required />
+              <input name="email" type="email" id="email" placeholder="name@address.com" value={form?.values.email ?? ''} required />
             </div>
           </div> 
 
