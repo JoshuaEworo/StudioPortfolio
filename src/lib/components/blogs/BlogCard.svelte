@@ -13,14 +13,14 @@
 
 <style lang="postcss">
     .blogpost{
-        @apply grid md:grid-cols-[1fr_2fr] gap-3 lg:gap-16;
+        @apply grid md:grid-cols-[1fr_2fr] gap-3 lg:gap-5;
     }
 
     .text{
         @apply my-auto flex flex-col gap-3;
     }
     .image{
-        @apply rounded-xl border;
+        @apply rounded-xl border w-[420px] h-[280px] object-cover;
     }
 </style>
 

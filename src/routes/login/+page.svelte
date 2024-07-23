@@ -1,7 +1,5 @@
 <script>
     import { enhance } from "$app/forms";
-	  export let form;
-
     import { supabase } from '$lib/supabase';
 
     console.log(supabase);
@@ -69,11 +67,12 @@
       </div>
 
       <div class="loginForm">
-        <form method="post" action="/login?/signin" use:enhance>
+        <form method="POST" action="login?/login" use:enhance>
+        <!-- <form method="POST" action="?/login" use:enhance> -->
           <div class="email">
             <label for="email"><h5>Email</h5></label>
             <div class="inputHolder">
-              <input name="email" type="email" id="email" placeholder="name@address.com" value={form?.values.email ?? ''} required />
+              <input name="email" type="email" id="email" placeholder="name@address.com" required />
             </div>
           </div> 
 
@@ -84,7 +83,7 @@
             </div>
           </div>
 
-          <button class="loginBtn" type="submit"><p>Log In</p></button>
+          <button class="loginBtn"><p>Log In</p></button>
         </form>
       </div>
     </div>

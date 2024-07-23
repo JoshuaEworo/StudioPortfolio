@@ -1,13 +1,9 @@
 <script>
     import Hero from '$lib/assets/AboutHero.webp'
 	import PageHeader from '$lib/components/PageHeader.svelte';
-    import { fly } from 'svelte/transition';
-
-    import Fa from 'svelte-fa';
-    import { faHtml5, faCss3, faJs, faNodeJs, faFigma } from '@fortawesome/free-brands-svg-icons'
     import 'iconify-icon'
 
-    let iconSize = 52;
+    let iconSize = 60;
 </script>
 
 <style lang='postcss'>
@@ -37,10 +33,10 @@
         @apply w-11/12 mx-auto;
     }
     .logos{
-        @apply grid grid-cols-3 lg:grid-cols-6 gap-12 w-10/12 mx-auto my-12;
+        @apply grid grid-cols-3 lg:grid-cols-5 gap-12 w-10/12 mx-auto my-12;
     }
     .logos div{
-        @apply flex justify-center;
+        @apply flex justify-center my-6;
     }
 </style>
 
@@ -70,10 +66,13 @@
             <div><iconify-icon icon="devicon:html5" style="font-size: {iconSize}px;"></iconify-icon></div>
             <div><iconify-icon icon="devicon:css3" style="font-size: {iconSize}px;"></iconify-icon></div>
             <div><iconify-icon icon="devicon:javascript" style="font-size: {iconSize}px;"></iconify-icon></div>
-            <div><iconify-icon icon="devicon:tailwindcss" style="font-size: {iconSize}px;"></iconify-icon></div>
+            <div><iconify-icon icon="devicon:python" style="font-size: {iconSize}px;"></iconify-icon></div>
+            <div><iconify-icon icon="devicon:cplusplus" style="font-size: {iconSize}px;"></iconify-icon></div>
+            <div><iconify-icon icon="devicon:react" style="font-size: {iconSize}px;"></iconify-icon></div>
             <div><iconify-icon icon="teenyicons:nextjs-outline" style="color: white; font-size: {iconSize}px;"></iconify-icon></div>
-            <div><iconify-icon icon="vscode-icons:file-type-vercel" style="font-size: {iconSize}px;"></iconify-icon></div>
-            <div><iconify-icon icon="skill-icons:webflow" style="color: white; font-size: {iconSize}px;"></iconify-icon></div>
+            <div><iconify-icon icon="devicon:svelte" style="font-size: {iconSize}px;"></iconify-icon></div>
+            <!-- <div><iconify-icon icon="vscode-icons:file-type-vercel" style="font-size: {iconSize}px;"></iconify-icon></div> -->
+            <div><iconify-icon icon="devicon:tailwindcss" style="font-size: {iconSize}px;"></iconify-icon></div>
             <div><iconify-icon icon="devicon:figma" style="font-size: {iconSize}px;"></iconify-icon></div>
         </div>
     </section>

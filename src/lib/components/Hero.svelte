@@ -1,12 +1,13 @@
 <script>
     import Hero from '$lib/assets/Hero.webp'
+    import Hero2 from '$lib/assets/BWPFP.webp'
     import { fly } from 'svelte/transition';
 	import Icons from './Icons.svelte';
-
 </script>
 
 <svelte:head>
     <link rel="preload" as="image" href={Hero} />
+    <link rel="preload" as="image" href={Hero2} />
 </svelte:head>
 
 <style lang="postcss">
@@ -39,7 +40,7 @@
         @apply absolute flex justify-end right-1 lg:right-1/3;
     }
     .heroImage{
-        @apply rounded-full -z-10 mx-auto;
+        @apply rounded-full -z-10 mx-auto object-cover shadow-inner;
         width: 40vw;
         height: 40vw;
     }
@@ -59,7 +60,7 @@
 </style>
 
 <div class="hero">
-    <div class="visuals">
+    <div class="visuals select-none">
         <span class="visual-text">Joshua</span>
         <span class="visual-text vt-bottom">Eworo</span>
         <div class="HeroImageDiv">

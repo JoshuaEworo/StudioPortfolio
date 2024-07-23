@@ -38,8 +38,10 @@
 		"@fortawesome/free-brands-svg-icons": "^6.4.0",
 		"@fortawesome/free-solid-svg-icons": "^6.4.0",
 		"@supabase/auth-helpers-sveltekit": "^0.10.3",
-		"@supabase/supabase-js": "^2.38.0",
+		"@supabase/ssr": "^0.4.0",
+		"@supabase/supabase-js": "^2.44.4",
 		"iconify-icon": "^1.0.8",
+		"supabase": "^1.153.4",
 		"svelte-exmarkdown": "^3.0.1",
 		"svelte-fa": "^3.0.4",
 		"svelte-markdown": "^0.4.0"

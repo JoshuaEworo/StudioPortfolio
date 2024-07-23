@@ -1,5 +1,4 @@
 <script lang="ts">
-  import pfLogo from '$lib/assets/pf-logo.webp'
   import SvelteMarkdown from 'svelte-markdown'
   import Fa from 'svelte-fa'
   import { faPlus, faSave, faTrash, faCog } from '@fortawesome/free-solid-svg-icons'
@@ -52,10 +51,6 @@
 
 
 <style lang="postcss">
-  .screen{
-    @apply overflow-y-hidden h-screen;
-    background-color: #0D0D0D;
-  }
   .wrapperAdmin{
     @apply w-screen mx-auto;
   }
@@ -64,31 +59,12 @@
     @apply w-full h-full text-white px-2;
   }
 
-  .navbar{
-    @apply flex flex-row w-full px-5 mx-auto my-4 justify-between;
-  }
-  .n-left{
-    @apply flex flex-row;
-  }
-  .loginBtn{
-    @apply border border-white rounded-3xl px-6 py-1;
-  }
-  .loginBtn p{
-    @apply text-sm;
-  }
-  .logo{
-    @apply invert mr-4;
-    width: 37.2px;
-    height: 31.2px;
-  }
-
   .workspace{
-    @apply h-screen w-full grid gap-4;
-    grid-template-columns: 1.8fr 3fr 3fr;
-    height: calc(100vh - 64px);
+    @apply w-full grid grid-cols-[1.8fr_3fr_3fr];
   }
   .sidebar, .editor, .preview{
     @apply w-full;
+    height: calc(100vh - 64px);
   }
   .sidebar, .editor{
     @apply border-r border-white;
@@ -97,7 +73,7 @@
     @apply flex flex-col justify-between overflow-hidden px-2;
   }
   .editor{
-    @apply px-2 mt-8  break-words;
+    @apply p-3 break-words m-0;
   }
   .preview{
     @apply overflow-y-scroll break-words px-2 pr-4;
@@ -131,17 +107,6 @@
 
 <div class="screen">
   <div class="wrapperAdmin">
-    <div class = "navbar">
-      <div class="n-left">
-        <img class="logo" src={pfLogo} alt="">
-        <h6>Admin Console</h6>
-      </div>
-  
-      <form class="loginForm" method="POST" action="/login?/signout">
-        <button class="loginBtn"><p>Log Out</p></button>
-      </form>
-    </div>
-    <hr>
     <section class="workspace">
       <div class="sidebar">
         <div class="topbar">
@@ -195,7 +160,8 @@
       </div>
       
       <section class="editor">
-        <textarea bind:value={articleContent}></textarea>
+        <!-- <textarea class="" bind:value={articleContent}></textarea> -->
+        <div contenteditable="plaintext-only" class="w-full block box-border h-full p-3 outline-none overflow-y-auto" bind:textContent={articleContent} placeholder="Type your message here..."></div>
       </section>
 
       <section class="preview">
