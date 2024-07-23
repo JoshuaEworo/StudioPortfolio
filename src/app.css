@@ -6,7 +6,7 @@
 
 html{
     @apply m-0;
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
     font-family: 'Montserrat Variable', sans-serif;
     background: url(lib/assets/Background.svg) center top repeat fixed;
     background-size: cover; 

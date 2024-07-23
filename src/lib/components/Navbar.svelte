@@ -91,7 +91,7 @@
                 </div>
             {/each}
             <div class="get-started">
-                <a href="/contact">
+                <a href="mailto:eworojoshua@gmail.com">
                     <div class="btn">
                         Get in touch!
                     </div>

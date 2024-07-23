@@ -25,7 +25,7 @@
     }
 </style>
 
-<a class="projectWrapper" href={link} style={backgroundCSS}>
+<a class="projectWrapper" href={link} style={backgroundCSS} target="_blank">
     <div class="project-info">
         <h4>{name}</h4>
         <p>{type}</p>

@@ -7,6 +7,10 @@
 
 </style>
 
+<svelte:head>
+    <title>Blog | Joshua Eworo</title>
+</svelte:head>
+
 <PageHeader subtitle="A journal for all my thoughts, experiments, and insights" title='My Journal' showSubtitle={true}/>
 <section class="Blogs di-sect">
     <BlogList isPage={true}/>

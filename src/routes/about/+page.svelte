@@ -41,6 +41,7 @@
 </style>
 
 <svelte:head>
+    <title>About | Joshua Eworo</title>
     <link rel="preload" as="image" href={Hero} />
 </svelte:head>
 
@@ -63,17 +64,17 @@
     <section class="proficiency">
         <h3 class="sectHeader">Skills I am Proficient At</h3>
         <div class="logos">
-            <div><iconify-icon icon="devicon:html5" style="font-size: {iconSize}px;"></iconify-icon></div>
-            <div><iconify-icon icon="devicon:css3" style="font-size: {iconSize}px;"></iconify-icon></div>
-            <div><iconify-icon icon="devicon:javascript" style="font-size: {iconSize}px;"></iconify-icon></div>
-            <div><iconify-icon icon="devicon:python" style="font-size: {iconSize}px;"></iconify-icon></div>
-            <div><iconify-icon icon="devicon:cplusplus" style="font-size: {iconSize}px;"></iconify-icon></div>
-            <div><iconify-icon icon="devicon:react" style="font-size: {iconSize}px;"></iconify-icon></div>
-            <div><iconify-icon icon="teenyicons:nextjs-outline" style="color: white; font-size: {iconSize}px;"></iconify-icon></div>
-            <div><iconify-icon icon="devicon:svelte" style="font-size: {iconSize}px;"></iconify-icon></div>
+            <div title="HTML5"><iconify-icon icon="devicon:html5" style="font-size: {iconSize}px;"></iconify-icon></div>
+            <div title="CSS3"><iconify-icon icon="devicon:css3" style="font-size: {iconSize}px;"></iconify-icon></div>
+            <div title="JavaScript"><iconify-icon icon="devicon:javascript" style="font-size: {iconSize}px;"></iconify-icon></div>
+            <div title="Python"><iconify-icon icon="devicon:python" style="font-size: {iconSize}px;"></iconify-icon></div>
+            <div title="C++"><iconify-icon icon="devicon:cplusplus" style="font-size: {iconSize}px;"></iconify-icon></div>
+            <div title="React"><iconify-icon icon="devicon:react" style="font-size: {iconSize}px;"></iconify-icon></div>
+            <div title="NextJS"><iconify-icon icon="teenyicons:nextjs-outline" style="color: white; font-size: {iconSize}px;"></iconify-icon></div>
+            <div title="Svelte | SvelteKit"><iconify-icon icon="devicon:svelte" style="font-size: {iconSize}px;"></iconify-icon></div>
             <!-- <div><iconify-icon icon="vscode-icons:file-type-vercel" style="font-size: {iconSize}px;"></iconify-icon></div> -->
-            <div><iconify-icon icon="devicon:tailwindcss" style="font-size: {iconSize}px;"></iconify-icon></div>
-            <div><iconify-icon icon="devicon:figma" style="font-size: {iconSize}px;"></iconify-icon></div>
+            <div title="TailwindCSS"><iconify-icon icon="devicon:tailwindcss" style="font-size: {iconSize}px;"></iconify-icon></div>
+            <div title="Figma"><iconify-icon icon="devicon:figma" style="font-size: {iconSize}px;"></iconify-icon></div>
         </div>
     </section>
 </div>

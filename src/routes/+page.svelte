@@ -16,6 +16,8 @@
         }
     };
 
+    export let data;
+
 </script>
 
 <style lang="postcss">
@@ -30,6 +32,9 @@
     }
 </style>
 
+<svelte:head>
+    <title>Home | Joshua Eworo</title>
+</svelte:head>
 
 <Navbar/>
 
@@ -44,7 +49,7 @@
 
 <section class="Works-Section di-sect">
     <h1 class="sectionHeader" id="featured">Featured Works</h1>
-    <WorksList n_items={3}/>
+    <WorksList allProjects={data.projects} n_items={3}/>
     <div class="centered">
         <Button text="View All Projects" src="/projects"/>
     </div>

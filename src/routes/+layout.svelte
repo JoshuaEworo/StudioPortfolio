@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import "../app.css";
   import '@fontsource-variable/montserrat';
   import '@fontsource/poppins/600.css';
@@ -18,10 +18,24 @@
 
 		return () => data.subscription.unsubscribe();
 	});
+
+	import { afterNavigate, disableScrollHandling } from '$app/navigation';
+
+	afterNavigate(() => {
+		disableScrollHandling();
+		setTimeout(() => {
+			scrollTo({ top: 0, behavior: 'instant' });
+		}, 300);
+	});
+
+	// import type { PageData } from './$types'
+    import PageTransition from "$lib/components/transition.svelte"
 </script>
 
 
 <svelte:head>
 </svelte:head>
 
-<slot />
+<PageTransition key={data.url}>
+	<slot />
+</PageTransition>
