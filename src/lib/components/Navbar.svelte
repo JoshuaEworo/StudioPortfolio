@@ -1,5 +1,6 @@
 <script lang="ts" type="module">
     import pfLogo from '$lib/assets/pf-logo.webp'
+    import Logo from '$lib/assets/Logo.svg'
     import Fa from 'svelte-fa'
     import { faBars, faClose } from '@fortawesome/free-solid-svg-icons'
 	import { blur } from 'svelte/transition';
@@ -64,11 +65,11 @@
         background: url($lib/assets/Background.svg) center top repeat fixed;
         background-size: auto 100%;
     }
-    .logo{
+    /* .logo{
         @apply invert;
         width: 37.2px;
         height: 31.2px;
-    }
+    } */
     .btn{
         @apply border border-white px-6 py-2 rounded-3xl;
     }
@@ -81,7 +82,11 @@
 <nav class={navClass}>
     <div class="wrapper di-sect">
         <div class="left">
-            <a href="/"><img class="logo" src={pfLogo} alt=""></a>
+            <a href="/">
+                <svg width="42" height="37" viewBox="0 0 42 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M28 2L10 21.2014L2 12.6679M33.9965 8.3957L15.9965 27.6043L22 34L40 14.7986M15.9965 2L12 6.265" stroke="white" stroke-width="5"/>
+                </svg>                
+            </a>
         </div>
     
         <div class="right">
