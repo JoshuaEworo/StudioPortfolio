@@ -2,6 +2,7 @@
 	import ProjectCard from "./ProjectCard.svelte";
     export let allProjects;
     export let n_items: number = allProjects.length;
+
     let projects = allProjects.slice(0, n_items);
 </script>
 
