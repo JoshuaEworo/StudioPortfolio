@@ -41,11 +41,17 @@ export const load: LayoutLoad = async ({ url, data, depends, fetch }) => {
 
   return { session, supabase, user, url: url.pathname,
     projects: [
-			{ 
+			      { 
                 name : "Delta AI",
                 type : "AI System | Desktop App Development",
                 img : "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 link: "/"
+            },
+            { 
+              name : "Pantrack",
+              type : "AI Web App Development",
+              img : "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              link: "https://pantrack-ten.vercel.app/"
             },
             { 
                 name : "Mind Palace",
@@ -55,7 +61,7 @@ export const load: LayoutLoad = async ({ url, data, depends, fetch }) => {
             },
             { 
                 name : "Aero Maestro",
-                type : "Hardware | AI Systems",
+                type : "Web App Development | AI System",
                 img : "https://images.unsplash.com/photo-1692029861107-991b13db6ad0?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 link: "https://devpost.com/software/aeromaestro"
             },
