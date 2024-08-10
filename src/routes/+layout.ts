@@ -50,7 +50,7 @@ export const load: LayoutLoad = async ({ url, data, depends, fetch }) => {
             { 
               name : "Pantrack",
               type : "AI Web App Development",
-              img : "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              img : "https://images.unsplash.com/photo-1715443973614-0a1435ab54fa?q=80&w=2800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
               link: "https://pantrack-ten.vercel.app/"
             },
             { 
@@ -71,12 +71,6 @@ export const load: LayoutLoad = async ({ url, data, depends, fetch }) => {
                 img : "https://images.unsplash.com/photo-1691458591407-2690397eb5f3?q=80&w=2831&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 link: "https://joshuaeworo.github.io/React-CRM-App/"
             },
-            // { 
-            //     name : "Echo",
-            //     type : "Desktop App Development | AI Application",
-            //     img : "https://images.unsplash.com/photo-1573184426556-05c59aca2e3b?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            //     link: "/"
-            // },
             { 
                 name : "Otto's Arena",
                 type : "C++ Program | Game Development",
