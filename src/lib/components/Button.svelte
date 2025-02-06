@@ -35,8 +35,8 @@
 </style>
 
 {#if isDropdown===true}
-    <div class="drop" on:click={dropDesc}>
-        <div class="main">
+    <button class="drop" on:click={dropDesc} on:keydown={(e) => e.key === 'Enter' && dropDesc()} aria-expanded={isDropped} aria-controls="dropdown-content">
+        <div class="main" role="button">
             <div class="arrow">
                 {#if isDropped === true}
                     <Fa icon={faArrowDown} size="lg"/>
@@ -47,9 +47,9 @@
             <p>{text}</p>
         </div>
         {#if isDropped === true}
-            <p transition:fade>{ddDesc}</p>
+            <p id="dropdown-content" transition:fade>{ddDesc}</p>
         {/if}
-    </div>
+    </button>
 {:else}
     <a href={src}>
         <div class="button">

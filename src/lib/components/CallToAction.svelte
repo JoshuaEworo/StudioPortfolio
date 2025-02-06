@@ -34,7 +34,7 @@
         <h1>Let's create <span class="themedWord">amazing</span> work together!</h1>
         <p>I'm available for new collaborations & projects. If you'd like to work with me, reach out, I'll be happy to help!</p>
         <div class="centerbtn">
-            <Button text="Get in touch!"/>
+            <Button text="Get in touch!" src="mailto:eworojoshua@gmail.com"/>
         </div>
     </div>
 </section>
