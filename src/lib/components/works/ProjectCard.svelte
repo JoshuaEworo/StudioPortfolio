@@ -1,33 +1,46 @@
+<!-- ProjectCard.svelte -->
 <script lang="ts">
-    export let link:string;
-    export let name:string;
-    export let type:string;
-    export let img:string;
+    export let link: string;
+    export let name: string;
+    export let type: string;
+    export let img: string;
+    export let description: string;
+    export let links: Array<{url: string, icon: string, label: string}>;
+    
+    import { createEventDispatcher } from 'svelte';
+    const dispatch = createEventDispatcher();
 
-    let backgroundCSS = `background: url(${img}); 
-        background-size: cover; 
-        background-position: center;     
-        `
+    function openModal() {
+        dispatch('openModal', {
+            name,
+            type,
+            img,
+            description,
+            links
+        });
+    }
 </script>
 
 <style lang="postcss">
     .projectWrapper{
-        @apply rounded-2xl bg-cover bg-center drop-shadow-xl border;
+        @apply rounded-2xl drop-shadow-xl border cursor-pointer overflow-hidden relative;
     }
     .project-info{
-        @apply flex flex-col p-5 pt-56 h-full justify-center w-full border-none;
+        @apply flex flex-col p-5 pt-56 h-full justify-center w-full border-none relative z-10 text-white;
+        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%);
     }
-    .project-img{ 
-        @apply object-contain;
+    .background-image {
+        @apply absolute inset-0 bg-cover bg-center transition-transform duration-300 ease-out -z-0;
     }
-    .project-img img{
-        @apply absolute top-1/2 -z-10;
+    .projectWrapper:hover .background-image {
+        @apply scale-110;
     }
 </style>
 
-<a class="projectWrapper" href={link} style={backgroundCSS} target="_blank">
+<div class="projectWrapper" on:click={openModal}>
+    <div class="background-image" style="background-image: url({img})"></div>
     <div class="project-info">
-        <h4>{name}</h4>
-        <p>{type}</p>
+        <h4 class="text-xl font-bold">{name}</h4>
+        <p class="text-sm mt-1">{type}</p>
     </div>
-</a>
+</div>
